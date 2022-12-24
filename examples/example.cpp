@@ -6,6 +6,10 @@ int main() {
   const char* package_name = "example.package";
   const char* manifest_name = "example.manifest";
 
+  //
+  // Creating package info struct
+  //
+
   PackageFlags flags = {};
   flags.compression_mode = CompressionMode::None;
 
@@ -13,6 +17,10 @@ int main() {
 
   uint64_t apple_data = 5;
   float banana_data[4] = {1.0f, 2.0f, 3.0f, 4.0f};
+  
+  //
+  // Adding data to a package
+  //
 
   add_package_entry_from_memory(&package_info, "apple", 8, &apple_data);
   add_package_entry_from_memory(&package_info, "banana", 4 * 4, banana_data);
@@ -30,6 +38,10 @@ int main() {
   printf("Added entry 'simple.txt' with data from file: 'simple.txt'\n");
   printf("\n");
 
+  //
+  // Saving packages and package manifests
+  //
+
   if(!save_package(&package_info, package_name)) {
     printf("Failed to save package!\n");
     return -1;
@@ -43,6 +55,10 @@ int main() {
   printf("Saved package '%s'\n", package_name);
   printf("Saved manifest '%s'\n", manifest_name);
   printf("\n");
+
+  //
+  // Loading packages and package manifests
+  //
 
   Package package;
   if(!load_package(&package, package_name)) {
@@ -60,6 +76,10 @@ int main() {
   printf("Loaded manifest '%s'\n", manifest_name);
   printf("\n");
 
+  //
+  // Reading package data
+  //
+
   uint64_t loaded_apple_data = *(uint64_t*)package.filename_hash_to_data.at(hash_filename("apple"));
   float* loaded_banana_data  = (float*)package.filename_hash_to_data[hash_filename("banana")];
   char* loaded_simple_data = (char*)package.filename_hash_to_data[hash_filename("simple.txt")];
@@ -75,6 +95,10 @@ int main() {
 
   printf("Loaded entry '%s' with data: '%s'\n", "simple.txt", loaded_simple_data);
   printf("\n");
+
+  //
+  // Rebuilding filenames from package manifest
+  //
 
   for(uint64_t i = 0; i < package.header.entries_count; i += 1) {
     printf("Entry with hash '0x%llx' has source file: '%s'\n", package.entries[i].filename_hash, manifest.filename_hash_to_filename.at(package.entries[i].filename_hash));
