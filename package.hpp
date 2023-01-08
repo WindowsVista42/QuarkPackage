@@ -30,12 +30,12 @@
 // (u64) RESERVED
 //
 // --------------------- Entries Section
-// --------------------- Entry0
+// --------------------- Entry 0
 // (u64) DATA_OFFSET
 // (u64) DATA_SIZE
 // (u64) FILENAME_HASH
 //
-// --------------------- Entry1
+// --------------------- Entry 1
 // (u64) DATA_OFFSET
 // (u64) DATA_SIZE
 // (u64) FILENAME_HASH
@@ -43,22 +43,22 @@
 // --------------------- ...
 // ...
 //
-// --------------------- Entry..ENTRY_COUNT - 1
+// --------------------- Entry N (ENTRY_COUNT - 1)
 // (u64) DATA_OFFSET
 // (u64) DATA_SIZE
 // (u64) FILENAME_HASH
 //
 // --------------------- Data Section, Origin used for DATA_OFFSET
-// --------------------- Entry0
+// --------------------- Entry 0
 // (Entry0.DATA_SIZE bytes) DATA
 //
-// --------------------- Entry0
+// --------------------- Entry 1
 // (Entry1.DATA_SIZE bytes) DATA
 //
 // --------------------- ...
 // ...
 //
-// --------------------- Entry..ENTRY_COUNT - 1
+// --------------------- Entry N (ENTRY_COUNT - 1)
 // (EntryN.DATA_SIZE bytes) DATA
 //
 // --------------------- End of File
@@ -81,7 +81,6 @@
 // (Zero Terminated String)
 // (Zero Terminated String)
 // ...
-//
 // (Zero Terminated String)
 //
 // --------------------- End of File
