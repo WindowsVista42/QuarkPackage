@@ -35,7 +35,7 @@ if(!load_package(&package, "my_package.package")) {
 }
 
 // Read an entry from a package
-uint64_t loaded_apple_data = *(uint64_t*)package.filename_hash_to_data.at(hash_filename("apple"));
+uint64_t loaded_apple_data = get_package_entry(package, "apple", uint64_t);
 
 // Prints: 5
 printf("%d\n", loaded_apple_data);
