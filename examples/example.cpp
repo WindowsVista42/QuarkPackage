@@ -80,9 +80,9 @@ int main() {
   // Reading package data
   //
 
-  uint64_t loaded_apple_data = get_package_entry(package, "apple", uint64_t);
-  float* loaded_banana_data  = get_package_entry_ptr(package, "banana", float*);
-  char* loaded_simple_data = get_package_entry_ptr(package, "simple.txt", char*);
+  uint64_t loaded_apple_data = *(uint64_t*)get_package_entry(package, "apple");
+  float* loaded_banana_data = (float*)get_package_entry(package, "banana");
+  char* loaded_simple_data = (char*)get_package_entry(package, "simple.txt");
 
   printf("Loaded entry '%s' with data: '%llu'\n", "apple", loaded_apple_data);
   printf("Loaded entry '%s' with data: '", "banana");
