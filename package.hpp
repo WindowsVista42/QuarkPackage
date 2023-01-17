@@ -179,4 +179,7 @@ namespace quark {
 
   void add_package_entry_from_memory(PackageInfo* info, const char* filename, uint64_t size_in_bytes, void* data);
   bool add_package_entry_from_disk(PackageInfo* info, const char* filename);
+
+  #define get_package_entry(package, name, type) *(type*)package.filename_hash_to_data.at(hash_filename(name))
+  #define get_package_entry_ptr(package, name, type_ptr) (type_ptr)package.filename_hash_to_data.at(hash_filename(name))
 };
