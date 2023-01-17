@@ -7,7 +7,7 @@ C++ 17 and a recent c++ compiler.
 ## Basic Usage
 Include **package.hpp** and **package.cpp** into your build system.
 
-```
+```c++
 // Include package.hpp
 // Use quark namespace
 // See examples/example.cpp for more details
