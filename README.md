@@ -8,6 +8,10 @@ C++ 17 and a recent c++ compiler.
 Include **package.hpp** and **package.cpp** into your build system.
 
 ```
+// Include package.hpp
+// Use quark namespace
+// See examples/example.cpp for more details
+
 // Create PackageInfo struct
 PackageFlags flags = {};
 flags.compression_mode = CompressionMode::None;
