@@ -1,5 +1,5 @@
 # QuarkPackage
-A simple package format written for my game engine in C-style C++.
+A simple package format with a simple API.
 
 ## Requirements
 C++ 17 and a recent c++ compiler.
